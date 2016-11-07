@@ -4,4 +4,10 @@
 
 from primes import *
 
-print sieve(2000000)[10000]
+prime_list = sieve(2000000)
+
+num_sum = 0
+for x in prime_list:
+    num_sum += x
+
+print num_sum
