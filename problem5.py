@@ -1,7 +1,18 @@
-#The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+#What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
-#Find the sum of all the primes below two million.
+start = 2520
 
-from primes import *
+factor_list = [11, 13, 17, 19]
 
-print sieve(2000000)[10000]
+for x in factor_list:
+    start = start * x
+
+start = start * 2
+
+factors = range(1,21)
+
+for factor in factors:
+    if start % factor != 0:
+        print factor
+
+print start
