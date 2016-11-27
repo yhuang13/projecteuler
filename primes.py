@@ -15,13 +15,14 @@ def remove_multiple(x, num_list):
 
 def sieve(num):
     num_list = sieve_list(num)
-    prime_list = []
+    prime_list = set([])
     x = 2
     while x <= num:
         remove_multiple(x, num_list)
         x += 1
     for n in num_list:
         if n:
-            prime_list.append(n)
+            prime_list.add(n)
     return prime_list
+
 

@@ -6,7 +6,6 @@ last_triangle_num = 0
 next_x = 1
 
 
-
 def nth_triangle_num():
     global last_triangle_num
     global next_x
@@ -15,33 +14,25 @@ def nth_triangle_num():
     return last_triangle_num
 
 
-def factor_list(n):
-    f_list = set([])
-    for x in range(1,n/2):
-        if n % x == 0:
-            f_list.add(x)
-            f_list.add(n/x)
-    print(len(f_list))
-    return len(f_list)
+
 
 def power_set(num_list):
-    x = len(num_list)
-    for i in range (1 < x):
-        return num_list[x] for j in range(x) if 
+    p_set = [[]]
+    for x in num_list:
+        p_set_copy = list(p_set)
+        p_set_copy = [y + [x] for y in p_set_copy]
+        p_set.extend(p_set_copy)
+    return p_set
 
-def get_factors(prime_list):
-    power_set = []
-    pos = 0
-    if pos == 0:
-        power_set.append([])
-    else:
-        power_set.append(prime_list[pos])
-
-print get_factors(return_prime_factor_list(6))
 
 def calculate_500_divisor():
     factors = set([])
-    while len(factors) <= 500:
-        factors = get_factors(return_prime_factor_list(nth_triangle_num()))
+    while len(factors) < 500:
+        prime_factors = return_prime_factor_list(nth_triangle_num())
+        p_set = power_set(prime_factors)
+        factors = set([])
+        for x in p_set:
+            factors.add(reduce(lambda a, b: a*b, x, 1))
+    return last_triangle_num
 
-#print calculate_500_divisor()
+print calculate_500_divisor()

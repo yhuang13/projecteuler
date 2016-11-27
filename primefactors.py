@@ -4,7 +4,6 @@ def is_factor(num, factor):
 def return_prime_factor_list(num):
     factor_list = []
     factor = 2
-
     while num > 1:
         if is_factor(num, factor):
             factor_list.append(factor)
